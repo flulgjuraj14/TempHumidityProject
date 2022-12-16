@@ -63,3 +63,19 @@ For this one, we first add the following lines of code:
 The first line refers to the bps rate of the ESP32. Then we put an error code just in case the connection is faulty or the board does not recognize the SHT31 Sensor. Then we initialize the OLED screen, clear it of any prior information displayed and set a display color of white. In my scenario, I ordered the same size LED screen, however the coloring was blue and yellow instead of white, thus it could not be changed. 
 
 ![](images/Screenshot%202022-12-16%20at%204.29.26%20PM.png)
+
+
+The above picture shows the rest of the code used to display the information on the OLED screen. The setTextSize() function is used to set the size of the font, where the larger the number, the larger the font. "Temperature" and "Humidity" have smaller fonts than the actual values displayed. We will use the setCursor() function to denote the x and the y-axis position from where the text should start. Finally, the print() function writes the text on the defined position.
+
+## Compiling & Uploading: 
+Once the code full code has been written, which you can check out in the main repo files, is time to debug and upload it to the ESP32 board. We have to select the right board and communication port. For that, go to Tools > Board, then choose the "ESP32 Dev Module" board, which we installed earlier. While at Tools, select Port where the board is connected. For me it was "/dev/cu.usbserial-0001" however, depending on the computer you are using, it might be different. Once the uploading is done, press the enable "EN" button on the side of the ESP32 to activate it. Congrats, you did it!! 
+
+## Errors That I Encountered:
+If for any reasons you get an error code or something is wrong do not worry, I faced a number of issues as well. 
+1. My mac updated the week before I started working on this project and for whatever reason, it deleted the Python and Arduino libraries I had already downloaded as well as other softwares, so I had to re-install everything through my computer terminal. StackOverflow was very helpful! 
+2. Arduino libraries were outdated. I had to update them and make sure that everything was up to date. 
+3. Faulty wiring. If you are new to such projects, it is okay, it took me some time to get used to all the parallel and series connections. 
+
+## Credits & Parts List:
+
+Two websites that I found really useful during this project were microcontrollerslab.com and StackOverflow. They offer great tips as well as multiple different projects involving microcontrollers and more. 
