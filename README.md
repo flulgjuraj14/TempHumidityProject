@@ -56,3 +56,10 @@ Initialize the OLED display by calling the begin() method on the display object.
 
 display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
 ## Setting Up The OLED Screen
+For this one, we first add the following lines of code: 
+
+![](images/oled1.jpg)
+
+The first line refers to the bps rate of the ESP32. Then we put an error code just in case the connection is faulty or the board does not recognize the SHT31 Sensor. Then we initialize the OLED screen, clear it of any prior information displayed and set a display color of white. In my scenario, I ordered the same size LED screen, however the coloring was blue and yellow instead of white, thus it could not be changed. 
+
+![](images/Screenshot%202022-12-16%20at%204.29.26%20PM.png)
