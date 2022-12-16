@@ -81,5 +81,7 @@ If for any reasons you get an error code or something is wrong do not worry, I f
 Two websites that I found really useful during this project were microcontrollerslab.com and StackOverflow. They offer great tips as well as multiple different projects involving microcontrollers and more. 
 
 <a href="https://www.amazon.com/dp/B09GK74F7N?psc=1&ref=ppx_yo2ov_dt_b_product_details/" target="_blank">3-pack Of ESP32</a>
+
 <a href="https://www.amazon.com/dp/B085WBFCMF?psc=1&ref=ppx_yo2ov_dt_b_product_details/" target="_blank">SHT31 Sensor</a>
+
 <a href="https://www.amazon.com/dp/B072Q2X2LL?psc=1&ref=ppx_yo2ov_dt_b_product_details/" target="_blank">OLED screen</a>
