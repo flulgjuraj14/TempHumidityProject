@@ -12,7 +12,47 @@ The OLED display I used was a HiLetgo 0.96" SSD1306 I2C IIC SPI Serial 128X64 OL
 To connect everything together, i used different colored jumper wires. Black and red to connect ground and!
  input voltage respectively, as well as blue and green wires to connect the respective SCL and SDA pins. You can use whatever colors you prefer, however, make sure to be consistent to avoid any mistakes in the circuit set up. 
 
-# Setting up the circuit: 
+## Setting up the circuit: 
 Once I received all the parts, I started putting together the physical circuit. I decided to do this first because I really enjoy putting puzzles together and this really felt like one. I connected everything just like in the diagram below:
 
-[SHT31-with-ESP32-and-OLED-connection-diagram](https://user-images.githubusercontent.com/113056270/207421215-f5c41d90-486d-4c0d-b674-06e6cb1a278b.jpg)
+![](images/sht31circuit.jpeg)
+
+Once I finished with this, I started with writing the code. 
+
+# Writing the Code On Arduino IDE:
+## Downloading the ESP32 Plugin:
+Because we are working in the Arduino IDE and the ESP 32 board, we need to add the ESP32 plugin. To do this, check the follwing steps: 
+1. Go to Files > Preferences, and then paste this link in the "Additional Board Manager URL" https://dl.espressif.com/dl/package_esp32_index.json
+2. Click Ok/Apply
+3. Then go to Tools > Boards Manager. In the lookup box search for "ESP32" by Espressif. Click install and once it is installed click Ok/Apply. Your ESP32 Dev Module board should be ready to use. 
+
+## Downloading the right libraries:
+Once my board was recognized, it was time to install the following libraries: 
+
+1. Adafruit SHT31
+2. Adafruit BusIO
+3. Adafruit SSD1306
+
+
+Open your Arduino IDE and go to Sketch > Include Libraries > Manage Libraries. Type Adafruit SHT31 in the search bar and install the latest version. Type Adafruit BusIO in the search bar and install it as well. To use the OLED display in our project, we have to install the Adafruit SSD 1306 library in Arduino IDE. Follow the steps below to successfully install it. Open Arduino IDE and click on Sketch > Library > Manage Libraries. Type ‘SSD1306’ in the search tab and install the Adafruit SSD1306 OLED library.
+## Header Files: 
+We will first include all the required libraries for the SHT31 sensor as well as the OLED display which we just installed before.
+
+#include <Arduino.h>
+
+#include <Wire.h>
+
+#include "Adafruit_SHT31.h"
+
+#include <Adafruit_GFX.h>
+
+#include <Adafruit_SSD1306.h>
+
+Now, we will create another object named ‘display’ which will be handling the OLED display. Also, define the size of the OLED display by passing arguments to the Adafruit_SSD1306() function.
+
+Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire, -1);
+
+Initialize the OLED display by calling the begin() method on the display object.
+
+display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
+## Setting Up The OLED Screen
